@@ -4,16 +4,16 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :User Name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :E-mail %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :Password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
