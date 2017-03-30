@@ -6,8 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Profile Pic </th>
       <th>Password</th>
       <th>Email</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= image_tag user.image.thumb('50x50').url %></td>
         <td><%= user.password %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
