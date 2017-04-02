@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<%  @currentUser = current_user %>
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_group_path(@group) %> |
+
