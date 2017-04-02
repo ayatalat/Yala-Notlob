@@ -6,13 +6,14 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #to only show login user details 
-     @currentUser = current_user
-     render 'show'
+    @currentUser = current_user
+    @users=User.all
+    render 'show'
   end
 
   # GET /users/1
   # GET /users/1.json
-  def show
+  def show 
   end
 
   # GET /users/new
@@ -67,6 +68,21 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_friend
+    @friend=User.find_by_email(params[:email])
+    @currentUser=current_user
+    # @currentUser = User.create(name: @currentUser.name)
+    # @friend = User.create(name: @friend.name)
+    @currentUser.friend_request(@friend)
+    @friend.accept_request(@currentUser)
+
+
+
+
+
+    
   end
 
   private

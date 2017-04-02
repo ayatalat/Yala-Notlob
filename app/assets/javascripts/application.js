@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //=  require bootstrap.min 
+
+$("#add_friend").on("click",function(){
+
+
+
+
+
+
+});
