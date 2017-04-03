@@ -15,37 +15,4 @@
   <%= @currentUser.email %>
 </p>
 
-
-
-
-
-
-
-<h1>add your friends </h1>
-
-
-<%= form_for :friend do |f| %>
-Add :<%= f.text_field :email %>
-<%= f.submit "Add friend" , :type => "button" , :id=> "add_friend" %>
-<!-- handle by javascript  and ajax to go to add_friend action remember -->
-<% end %> 
-
-
-
-<h1> all users to be friends</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-  </tr>
- 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'Add friend' %></td>
-    </tr>
-  <% end %>
-</table>
-
 <%= link_to 'Back', users_path %>
