@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @currentUser.password %>
+  <strong>Profile Pic:</strong>
+  <%= image_tag @currentUser.image.thumb('80x60').url  %>
 </p>
 
 <p>
