@@ -70,20 +70,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_friend
-    @friend=User.find_by_email(params[:email])
-    @currentUser=current_user
-    # @currentUser = User.create(name: @currentUser.name)
-    # @friend = User.create(name: @friend.name)
-    @currentUser.friend_request(@friend)
-    @friend.accept_request(@currentUser)
-
-
-
-
-
-    
-  end
+  # def add_friend
+  #   @friend=User.find_by_email(params[:email])
+  #   @currentUser=current_user
+  #   # @currentUser = User.create(name: @currentUser.name)
+  #   # @friend = User.create(name: @friend.name)
+  #   @currentUser.friend_request(@friend)
+  #   @friend.accept_request(@currentUser)
+ 
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -5,7 +5,7 @@
 <%= render 'form', group: @group %>
 
 
- 
+
 <h1>Groups</h1>
 
 <table>
@@ -21,10 +21,14 @@
     <% @currentUser = current_user %>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
-        <td><%= group.user.name %></td>
-       
-       
+        <td> <%= link_to "#{group.name}", "group/#{group.id}/friends" %></td>
+        <td><%= @currentUser.name %></td>
+        <td>
+          <%= form_tag('/list_member',method: "post") do %>
+                   <%= hidden_field_tag :group_id, group.id %>
+                 <%= submit_tag "list member" %>
+               <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

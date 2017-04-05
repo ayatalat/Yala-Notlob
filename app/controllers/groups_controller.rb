@@ -1,15 +1,37 @@
 class GroupsController < ApplicationController
 
-  
+
   def index
      @currentUser = current_user
      @groups = @currentUser.groups
     @group = @currentUser.groups.new
 
+  end
+
+  def friends
+    @currentUser = current_user
+    @friends = @currentUser.friends
+    @group = Group.find(params[:id])
+
+    # @followres = @group.all_following
 
   end
-  
-  def show 
+  def add_friend
+    @currentUser = current_user
+    @group = Group.find(params[:group_id])
+    @friend=User.find(params[:friend_id])
+    @friend.follow(@group)
+      # respond_to do |format|
+      #
+      #           format.html { redirect_to user_groups_path(@currentUser,@group), notice: 'hiiiiiiiiiiiii created.' }
+      # end
+  end
+  def list_member
+    @group = Group.find(params[:group_id])
+    @followres = @group.followers
+    redirect_to '/list'
+  end
+  def show
     redirect_to '/groups/index'
   end
 
