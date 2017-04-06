@@ -6,13 +6,37 @@
 </p>
 
 <p>
-  <strong>Profile Pic:</strong>
-  <%= image_tag @currentUser.image.thumb('80x60').url  %>
+  <strong>Email:</strong>
+  <%= @currentUser.email %>
 </p>
 
 <p>
   <strong>Email:</strong>
   <%= @currentUser.email %>
 </p>
+<strong>latest orders </strong>
+<% @orders.each do |order| %>
+      <p>
+        <%= order.orderType %>
+        on
+        <%= order.created_at.strftime("%d %b. %Y") %>
+      </p>
+    <% end %>
+<strong> friends activity</strong>
+
+
+<% @friends.each do |friend| %>
+       <p>
+        <% friend.orders.each do |order| %>
+        <%= friend.name %>
+         created
+        <%= order.orderType %>
+        from 
+        <%= order.restaurant %>
+       </p>
+      
+       <% end %>
+     
+    <% end %>
 
 <%= link_to 'Back', users_path %>

@@ -7,5 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   dragonfly_accessor :image
    acts_as_follower
+   has_many :orders
 
 end

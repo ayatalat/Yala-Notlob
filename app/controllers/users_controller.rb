@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     #to only show login user details 
     @currentUser = current_user
     @users=User.all
+    @orders=@currentUser.orders.all
+    @friends=@currentUser.friends
+
     render 'show'
   end
 

@@ -5,7 +5,7 @@
   <% @currentUser.friends.each do |friend| %>
 
   <%= form_tag('/add_friend',method: "post") do %>
-    <% if ( (friend.following?(@group)) ) %>
+    <% if ( !(friend.following?(@group)) ) %>
             <%= friend.name %>
            <%= hidden_field_tag :friend_id , friend.id%>
            <%= hidden_field_tag :group_id, @group.id %>

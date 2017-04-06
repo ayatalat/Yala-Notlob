@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
   def list_member
     @group = Group.find(params[:group_id])
     @followres = @group.followers
-    redirect_to '/list'
+    render 'list'
   end
   def show
     redirect_to '/groups/index'
