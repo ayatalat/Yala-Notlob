@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>YalaNotlob</title>
+   <%= csrf_meta_tags %>
+
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ </head>
+
+ <body>
+
+
+<nav class="navbar navbar-default">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <span class="navbar-brand" href="#">Yalla Notlob</span>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav">
+             <li><%= link_to 'Home', root_path%></li>
+             <% if user_signed_in? %>
+             <li><%= link_to 'Friend', friends_path%></li>
+             <li><%= link_to 'Groups', user_groups_path(current_user) %></li>
+             <li><%= link_to 'Orders', user_orders_path(current_user)%></li>
+             <% end %>
+
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+             <% if user_signed_in? %>
+             <li><button class="btn btn-default btn-xs btn-link" style="font-size:30px;"><span class="glyphicon glyphicon-envelope"></span></button>
+               <span class="badge" style="background:red; position:relative;top: -7px;left: -22px;">3</span></li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="text-capitalize" > <%= current_user.name %> </span><span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><%= link_to 'Edit', edit_user_path(current_user),class:"navbar-dropdown" %></li>
+                 <li><%= link_to 'Logout' ,destroy_user_session_path,class:"navbar-dropdown",method: :delete %></li>
+               </ul>
+             </li>
+             <% end %>
+           </ul>
+
+         </div><!--/.nav-collapse -->
+
+       </div><!--/.container-fluid -->
+     </nav>
+   <%= yield %>
+   <% if notice %>
+ </br><div class="alert alert-success" role="alert"><%=notice%></div>
+   <% end %>
+   <% if alert %>
+ </br><div class="alert alert-danger" role="alert"><%=alert%></div>
+   <% end %>
+ </body>
+</html>
