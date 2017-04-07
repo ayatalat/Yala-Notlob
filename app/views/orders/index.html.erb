@@ -18,7 +18,7 @@
       <tr>
         <td><%= order.orderType %></td>
         <td><%= order.restaurant %></td>
-        <td><%= order.image %></td>
+        <td><%= image_tag order.avatar.url(:thumb) %></td>
         <td><%= order.status %></td>
         <td><%= order.user.name %></td>
         <td style="padding:0px;"><%= link_to 'View', user_order_path(current_user, order),class: "btn btn-link " %> -

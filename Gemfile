@@ -24,6 +24,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 #AddPicture
 gem 'dragonfly'
+
+gem "paperclip", "~> 5.0.0"
 #friendship
 gem 'has_friendship'
 #group_members
