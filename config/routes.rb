@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-  
- 
+
+
   devise_for :users
   resources :users do
   	resources :groups
@@ -24,5 +24,7 @@ delete 'friends/:id/decline' => 'friends#decline'
 post '/order/:id' => 'orders#finish'
 
  root 'users#index'
+ get 'friends/:id/show' => 'friends#show'
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

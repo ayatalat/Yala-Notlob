@@ -1,42 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div  class="container-fluid">
+<h4>User Details</h4>
+<div class="row">
+  <div class="col-md-3">
+<table class="table table-hover table-bordered" >
+  <tbody>
+  <tr>
+  <td>Name:</td>
+  <td><%= @currentUser.name %></td>
+</tr>
+<tr>
+  <td >Email:</td>
+  <td ><%= @currentUser.email %></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @currentUser.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @currentUser.email %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @currentUser.email %>
-</p>
-<strong>latest orders </strong>
+<h4>Latest Orders</h4>
+  <ul style="margin-left:5px;">
 <% @orders.each do |order| %>
-      <p>
+      <li>
         <%= order.orderType %>
         on
         <%= order.created_at.strftime("%d %b. %Y") %>
-      </p>
-    <% end %>
-<strong> friends activity</strong>
-
-
+      </li>
+    <% end %></ul>  <%= link_to 'Create new order', new_user_order_path(current_user),class: "btn btn-link " %>
+<br>
+<h4>Friends Activities</h4>
+<ul style="margin-left:5px;">
 <% @friends.each do |friend| %>
-       <p>
+
         <% friend.orders.each do |order| %>
+      <li>
         <%= friend.name %>
          created
         <%= order.orderType %>
-        from 
+        from
         <%= order.restaurant %>
-       </p>
-      
-       <% end %>
-     
-    <% end %>
+      </li>
 
-<%= link_to 'Back', users_path %>
+       <% end %>
+ </ul>
+
+<% end %>

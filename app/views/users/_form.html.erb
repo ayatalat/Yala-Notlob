@@ -1,4 +1,5 @@
-<%= form_for(currentUser) do |f| %>
+
+  <%= form_for(currentUser) do |f| %>
   <% if currentUser.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(currentUser.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,26 +12,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="row">
+  <div class="field form-group col-md-4">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
   </div>
 
-  <div class="field">
+  <div class="row">
+  <div class="field form-group col-md-4">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.text_field :password, class: "form-control" %>
+  </div>
   </div>
 
-  <div class="field">
+  <div class="row">
+  <div class="field form-group col-md-4">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div class="field">
+  </div>
+  <div class="row">
+  <div class="field form-group col-md-4">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image,style: "padding:10px;" %>
+  </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update",class: "btn btn-default" %>
   </div>
 <% end %>

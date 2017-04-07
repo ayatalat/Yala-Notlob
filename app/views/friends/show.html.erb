@@ -1,18 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @friend.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @friend.email %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-<!--   <%= image_tag @friend.avatar.url() %>
- --></p>
-
-<%= link_to 'Back', '/friends' %>
+<div  class="container-fluid">
+<div class="row">
+  <div class="col-md-3">
+<table class="table table-hover table-bordered" >
+  <tbody>
+  <tr>
+  <td>Name:</td>
+  <td><%= @friend.name %></td>
+</tr>
+<tr>
+  <td >Email:</td>
+  <td ><%= @friend.email %></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<%= link_to 'Back', '/friends',class: "btn btn-link " %>
+</div>

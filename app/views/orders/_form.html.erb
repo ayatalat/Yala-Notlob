@@ -11,29 +11,46 @@
     </div>
   <% end %>
 
+
+  <div class="row">
+  <div class="field form-group col-md-4">
   <div class="field">
     <%= f.label :orderType %>
-    <%= f.text_field :orderType %>
+    <%= f.text_field :orderType, class: "form-control" %>
   </div>
+</div>
+</div>
 
+  <div class="row">
+  <div class="field form-group col-md-4">
   <div class="field">
     <%= f.label :restaurant %>
-    <%= f.text_field :restaurant %>
+    <%= f.text_field :restaurant, class: "form-control" %>
   </div>
+</div>
+</div>
 
+  <div class="row">
+  <div class="field form-group col-md-4">
    <div class="field">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, style: "padding:10px;" %>
   </div>
+</div>
+</div>
 
+  <div class="row">
+  <div class="field form-group col-md-4">
   <div class="field">
     <%= f.label :status %>
-    <%= f.text_field :status %>
+    <%= f.text_field :status, class: "form-control" %>
+  </div>
+  </div>
   </div>
 
-  
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Order", class: "btn btn-default" %>
+  </div>
   </div>
 <% end %>
