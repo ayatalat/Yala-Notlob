@@ -12,6 +12,10 @@
   <td >Email:</td>
   <td ><%= @currentUser.email %></td>
 </tr>
+<tr>
+<td >AVatar:</td>
+<td><%= image_tag @currentUser.avatar.url(:thumb) %> </td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -19,6 +23,7 @@
 
 <h4>Latest Orders</h4>
   <ul style="margin-left:5px;">
+  
 <% @orders.each do |order| %>
       <li>
         <%= order.orderType %>

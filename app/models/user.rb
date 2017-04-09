@@ -5,8 +5,9 @@ class User < ApplicationRecord
   has_many :groups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  dragonfly_accessor :image
    acts_as_follower
    has_many :orders
+   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "50x50>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 end
